@@ -552,11 +552,15 @@ input::placeholder{
   width:100%;
 }
 
-.voting-svg{
+.student-image{
   width:100%;
-  max-width:200px;
+  max-width:250px;
+  height:auto;
   margin:20px auto;
   display:block;
+  border-radius:12px;
+  border:2px solid var(--border);
+  box-shadow:0 4px 16px rgba(99, 102, 241, 0.2);
 }
 
 @media(max-width:900px){
@@ -593,7 +597,7 @@ input::placeholder{
 <div id="student" class="tab-content active">
   <div class="grid">
     <section class="card">
-      <h2>Your Voting Ballot</h2>
+      <h2>[Welcome to the safe, secure and transparent system - Vote with confidence as a smart and validate voter]</h2>
       
       <div class="field">
         <label for="studentId">Student ID</label>
@@ -610,10 +614,7 @@ input::placeholder{
           <span class="value" id="cred">XXXXX</span>
         </div>
 
-        <div class="welcome-message">
-          Welcome to the safe, secure and transparent system<br>
-          Vote with confidence as a smart and validate voter
-        </div>
+        <img id="studentVotingImage" class="student-image hidden" src="https://images.unsplash.com/photo-1494888286974-455c5a39db88?w=400&h=500&fit=crop" alt="Student Voting">
 
         <h3 style="margin:16px 0 14px 0;font-size:16px;font-weight:800">Select Your Candidates</h3>
         
@@ -737,42 +738,6 @@ input::placeholder{
     <section class="card">
       <h2>Election Status</h2>
       <div id="statusBox"></div>
-      
-      <!-- Student Voting SVG Illustration -->
-      <svg id="votingIllustration" class="voting-svg hidden" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <!-- Ballot Box -->
-        <rect x="60" y="80" width="80" height="80" rx="8" fill="none" stroke="#6366f1" stroke-width="3"/>
-        <rect x="60" y="80" width="80" height="15" rx="3" fill="#6366f1"/>
-        
-        <!-- Slot -->
-        <rect x="85" y="75" width="30" height="10" rx="2" fill="#8b5cf6"/>
-        
-        <!-- Ballot Paper -->
-        <g transform="translate(95, 60)">
-          <rect width="20" height="25" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-          <line x1="4" y1="8" x2="16" y2="8" stroke="#cbd5e1" stroke-width="1"/>
-          <line x1="4" y1="13" x2="16" y2="13" stroke="#cbd5e1" stroke-width="1"/>
-          <line x1="4" y1="18" x2="16" y2="18" stroke="#cbd5e1" stroke-width="1"/>
-        </g>
-        
-        <!-- Person voting (side profile) -->
-        <circle cx="45" cy="70" r="12" fill="#ec4899"/>
-        <path d="M 35 85 Q 35 95, 45 95" stroke="#ec4899" stroke-width="3" fill="none"/>
-        <line x1="45" y1="82" x2="45" y2="100" stroke="#ec4899" stroke-width="3"/>
-        <line x1="45" y1="85" x2="30" y2="100" stroke="#ec4899" stroke-width="3"/>
-        <line x1="45" y1="85" x2="55" y2="102" stroke="#ec4899" stroke-width="3"/>
-        
-        <!-- Hand inserting ballot -->
-        <circle cx="115" cy="75" r="6" fill="#f8fafc"/>
-        <line x1="115" y1="81" x2="115" y2="88" stroke="#f8fafc" stroke-width="2.5"/>
-        <line x1="115" y1="88" x2="105" y2="88" stroke="#f8fafc" stroke-width="2.5"/>
-        
-        <!-- Checkmark on box -->
-        <g transform="translate(140, 110)">
-          <circle r="8" fill="none" stroke="#10b981" stroke-width="2"/>
-          <path d="M -3 0 L 2 5 L 6 -2" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
     </section>
   </div>
 </div>
@@ -784,41 +749,8 @@ input::placeholder{
       <h2>Live Statistics</h2>
       <div style="font-size:40px;font-weight:800;color:var(--primary);margin-bottom:10px" id="totalVotesDisplay">0 Votes</div>
       
-      <!-- Student Voting SVG Illustration for Board -->
-      <svg class="voting-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <!-- Ballot Box -->
-        <rect x="60" y="80" width="80" height="80" rx="8" fill="none" stroke="#6366f1" stroke-width="3"/>
-        <rect x="60" y="80" width="80" height="15" rx="3" fill="#6366f1"/>
-        
-        <!-- Slot -->
-        <rect x="85" y="75" width="30" height="10" rx="2" fill="#8b5cf6"/>
-        
-        <!-- Ballot Paper -->
-        <g transform="translate(95, 60)">
-          <rect width="20" height="25" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-          <line x1="4" y1="8" x2="16" y2="8" stroke="#cbd5e1" stroke-width="1"/>
-          <line x1="4" y1="13" x2="16" y2="13" stroke="#cbd5e1" stroke-width="1"/>
-          <line x1="4" y1="18" x2="16" y2="18" stroke="#cbd5e1" stroke-width="1"/>
-        </g>
-        
-        <!-- Person voting (side profile) -->
-        <circle cx="45" cy="70" r="12" fill="#ec4899"/>
-        <path d="M 35 85 Q 35 95, 45 95" stroke="#ec4899" stroke-width="3" fill="none"/>
-        <line x1="45" y1="82" x2="45" y2="100" stroke="#ec4899" stroke-width="3"/>
-        <line x1="45" y1="85" x2="30" y2="100" stroke="#ec4899" stroke-width="3"/>
-        <line x1="45" y1="85" x2="55" y2="102" stroke="#ec4899" stroke-width="3"/>
-        
-        <!-- Hand inserting ballot -->
-        <circle cx="115" cy="75" r="6" fill="#f8fafc"/>
-        <line x1="115" y1="81" x2="115" y2="88" stroke="#f8fafc" stroke-width="2.5"/>
-        <line x1="115" y1="88" x2="105" y2="88" stroke="#f8fafc" stroke-width="2.5"/>
-        
-        <!-- Checkmark on box -->
-        <g transform="translate(140, 110)">
-          <circle r="8" fill="none" stroke="#10b981" stroke-width="2"/>
-          <path d="M -3 0 L 2 5 L 6 -2" stroke="#10b981" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </g>
-      </svg>
+      <!-- Student Voting Image -->
+      <img class="student-image" src="https://images.unsplash.com/photo-1494888286974-455c5a39db88?w=400&h=500&fit=crop" alt="Student Voting">
       
       <div id="statsContent"></div>
       <button class="btn primary refresh-btn" id="refreshBoardBtn">🔄 Refresh Board</button>
@@ -981,7 +913,7 @@ document.getElementById("issueBtn").onclick = () => {
   state.issued.set(id, c);
   document.getElementById("cred").textContent = c;
   document.getElementById("ballot").classList.remove("hidden");
-  document.getElementById("votingIllustration").classList.remove("hidden");
+  document.getElementById("studentVotingImage").classList.remove("hidden");
   showAlert("eligibilityMsg", "✓ Credential issued", "success");
 };
 
@@ -1024,7 +956,7 @@ document.getElementById("castBtn").onclick = () => {
     document.getElementById("studentId").value = "";
     document.getElementById("ballot").classList.add("hidden");
     document.getElementById("receipt").classList.add("hidden");
-    document.getElementById("votingIllustration").classList.add("hidden");
+    document.getElementById("studentVotingImage").classList.add("hidden");
     document.getElementById("eligibilityMsg").innerHTML = "";
     document.getElementById("castMsg").innerHTML = "";
     
@@ -1187,7 +1119,7 @@ document.getElementById("resetBtn").onclick = () => {
     document.getElementById("studentId").value = "";
     document.getElementById("ballot").classList.add("hidden");
     document.getElementById("receipt").classList.add("hidden");
-    document.getElementById("votingIllustration").classList.add("hidden");
+    document.getElementById("studentVotingImage").classList.add("hidden");
     updateStatusBox();
     updateStats();
     showAlert("adminMsg", "✓ System reset", "success");
